@@ -1,0 +1,22 @@
+{
+    "name": "drutiny/junit",
+    "description": "JUnit integration with Drutiny.",
+    "type": "library",
+    "require": {
+        "llaumgui/junit-xml": "dev-main",
+        "drutiny/drutiny": "3.1.x-dev"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Josh Waihi",
+            "email": "josh@joshwaihi.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+          "Drutiny\\JUnit\\": "src/"
+      }
+  },
+    "minimum-stability": "dev"
+}
