@@ -25,17 +25,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v6
-      
+        with:
+          php_extensions: bcmath
+
       - name: Make reports directory
         run: mkdir reports
 
       # Runs a single command using the runners shell
       - name: Build test report
         run: ./vendor/bin/drutiny profile:run test @none -f junit -o reports
-        
+
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1.28
         if: always()
         with:
           files: reports/*.xml
-
