@@ -51,12 +51,11 @@ class JUnit extends Format implements FilesystemFormatInterface {
 
       switch ($response->getType()) {
         case 'not-applicable':
-          $test->addSkipped('Not applicable.');
+          $test->addSkipped($policy->title.': Not applicable.');
           break;
 
         case 'error':
-          $test->addError(strtr('exception', $response->getTokens()));
-          break;
+          $test->addError($policy->title.strtr(': exception', $response->getTokens()));
 
         case 'failure':
           $test->addFailure($this->twig->createTemplate($policy->failure)->render($response->getTokens()));
@@ -64,7 +63,6 @@ class JUnit extends Format implements FilesystemFormatInterface {
       }
 
       $test->finish();
-
     }
     $suite->finish();
     return $this;
