@@ -39,7 +39,7 @@ jobs:
           php-version: '7.4'
 
       - name: Build Drutiny report
-        run: php vendor/bin/drutiny profile:run test @none -f junit -o reports
+        run: php vendor/bin/drutiny profile:run test none:test -l test.com -f junit -o reports
 
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1.28
