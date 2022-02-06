@@ -27,6 +27,7 @@ jobs:
       - uses: php-actions/composer@v6
         with:
           php_extensions: bcmath
+          php_version: 7.4
 
       - name: Make reports directory
         run: mkdir reports
